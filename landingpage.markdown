@@ -12,6 +12,7 @@ layout: default
 # - publish on github pages
 # - signup input validation
 # - set up domain name
+# - set up firebase access control
 ---
 
 
