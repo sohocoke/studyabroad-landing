@@ -9,10 +9,16 @@ layout: default
 #   - text
 #   - images
 # - disable unneessary elements
-# - publish on github pages
-# - signup input validation
 # - set up domain name
 # - set up firebase access control
+
+features:
+  - title: 직접 유학을 준비하는 지원자들을 위하여
+    text: 유학원의 힘을 빌리지 않고 직접 해외유학을 준비하다보면 각 단계마다 많은 어려움에 직면하게 됩니다. 그 중에서도 가장 지원자들을 힘들게 하는 일은 다양한 종류의 문서를 작성하는 일입니다.
+  - title: 번역부터 제출까지 토탈 서비스
+    text:  이제 간편하게 온라인으로 유학과 관련된 문서 준비를 한 번에 끝내세요. 학교별 에세이, 추천서와 이외 모든 입학에 필요한 문서 번역에서부터, 대외활동 내역 등 공증이 필요한 번역과 결과물 검수, 그리고 만들어진 문서의 제출까지 해외유학에 필요한 모든 문서에 대한 Total Support Service를 경험해보세요.
+  - title: 지원자와의 지속적인 소통을 통한 최적의 작업 결과 보장
+    text: 
 ---
 
 
@@ -60,8 +66,8 @@ layout: default
       </div>
       <div class="col-lg-6 order-lg-1">
         <div class="p-5">
-          <h2 class="display-4">직접 해외유학을 준비하는 지원자에게 꼭 맞는 온라인 서비스</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+          <h2 class="display-4">{{ page.features[0].title }}</h2>
+          <p>{{ page.features[0].text }}</p>
         </div>
       </div>
     </div>
@@ -78,8 +84,8 @@ layout: default
       </div>
       <div class="col-lg-6">
         <div class="p-5">
-          <h2 class="display-4">번역, 공증, 성적 변환, 우편 문서 제출 대행 등 토탈 서비스 제공</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+          <h2 class="display-4">{{ page.features[1].title }}</h2>
+          <p>{{ page.features[1].text }}</p>
         </div>
       </div>
     </div>
@@ -96,8 +102,8 @@ layout: default
       </div>
       <div class="col-lg-6 order-lg-1">
         <div class="p-5">
-          <h2 class="display-4">지원자와의 지속적인 소통을 통한 최적의 작업 결과 보장</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod aliquid, mollitia odio veniam sit iste esse assumenda amet aperiam exercitationem, ea animi blanditiis recusandae! Ratione voluptatum molestiae adipisci, beatae obcaecati.</p>
+          <h2 class="display-4">{{ page.features[2].title }}</h2>
+          <p>{{ page.features[2].text }}</p>
         </div>
       </div>
     </div>
@@ -174,8 +180,13 @@ layout: default
       "email": email.value
     };
 
+    // TODO validate data.
+
+    // TODO prevent further input.
+
     push_to_firebase(data);
 
+    // TODO on success, show thank-you message and survey.
   }
 
   document.getElementById("submit").addEventListener("click", contact_submit);
