@@ -2,16 +2,15 @@
 # Feel free to add content and custom Front Matter to this file.
 # To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
 
-layout: default
-
 # TODO: 
 # - replace placeholder content
 #   - text
 #   - images
-# - disable unneessary elements
 # - set up domain name
 # - set up firebase access control
 
+layout: default
+title:  올인원 유학 준비
 features:
   - title: 직접 유학을 준비하는 지원자들을 위하여
     text: 유학원의 힘을 빌리지 않고 직접 해외유학을 준비하다보면 각 단계마다 많은 어려움에 직면하게 됩니다. 그 중에서도 가장 지원자들을 힘들게 하는 일은 다양한 종류의 문서를 작성하는 일입니다.
@@ -23,7 +22,7 @@ features:
 
 
 <!-- Navigation -->
-<nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+<nav class="navbar  invisible  navbar-expand-lg navbar-dark navbar-custom fixed-top">
   <div class="container">
     <a class="navbar-brand" href="#">Start Bootstrap</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,7 +46,7 @@ features:
     <div class="container">
       <h1 class="masthead-heading mb-0">올인원 유학 준비</h1>
       <h2 class="masthead-subheading mb-0">해외유학 준비에 필요한 모든 문서를 한 번에 준비할 수 있다면?</h2>
-      <a href="#" class="btn btn-primary btn-xl rounded-pill mt-5">Learn More</a>
+      <a href="#" class="btn  invisible  btn-primary btn-xl rounded-pill mt-5">Learn More</a>
     </div>
   </div>
   <div class="bg-circle-1 bg-circle"></div>
@@ -115,11 +114,17 @@ features:
     <div class="row align-items-center">
       <div class="col-lg-6 order-lg-1">
         <div class="p-5" style="text-align: center;">
-          <p>2021년 상반기 출시 목표로 현재 비공개 베타 테스트 중입니다.</p>
-          <p>초대를 원하시면 이메일 주소를 남겨 주십시오.</p>
+          <p>2021년 상반기 출시 목표로 준비 중입니다.</p>
+          <p>비공개 베타 사용자 초대를 원하시면 이메일 주소를 남겨 주십시오.</p>
 
-          <input type="text" id="subscribe-email-address"      name="subscribe-email-address"/>
-          <button id="submit">초대 요청</button>
+          <!-- <form id="subscribe-form" action="#subscribe-form"> -->
+            <p>
+              <input type="text" id="subscribe-email-address"      name="subscribe-email-address"/>
+              <button id="submit">초대 요청</button>
+            </p>
+          <!-- </form> -->
+          <p id="validation-error-message" class="invisible text-danger">이메일 주소가 올바르지 않습니다.</p>
+          <p id="thank-you-message" class="invisible">감사합니다.</p>
         </div>
       </div>
     </div>
@@ -156,9 +161,6 @@ features:
 
 <script type="text/javascript">
   var push_to_firebase = function(data){
-    // alert("Thanks for sending a message. I'll try and get back to you as soon as possible.")
-    // TODO present result.
-
     var db = firebase.firestore();
 
     db.collection("signups").add({
@@ -174,21 +176,44 @@ features:
     });
   }
 
+  var validEmail = function(string) {
+    const re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(string);
+  };
+
   var contact_submit = function(){
+    var validationError = document.getElementById("validation-error-message");
+    validationError.classList.add("invisible");
+
     var email = document.getElementById("subscribe-email-address");
-    var data = {
-      "email": email.value
-    };
 
-    // TODO validate data.
+    if (validEmail(email.value)) {
+      var data = {
+        "email": email.value
+      };
 
-    // TODO prevent further input.
+      // prevent further input.
+      var button = document.getElementById("submit");
+      button.setAttribute("disabled", "");
 
-    push_to_firebase(data);
-
-    // TODO on success, show thank-you message and survey.
+      push_to_firebase(data);
+    
+      // on success, show thank-you message.
+      // TODO survey.
+      var thankYou = document.getElementById("thank-you-message");
+      thankYou.classList.remove("invisible");
+      
+    } else {
+      validationError.classList.remove("invisible");
+    }
   }
 
   document.getElementById("submit").addEventListener("click", contact_submit);
+
+  document.getElementById("subscribe-email-address").addEventListener("keyup", function(event) {
+    if (event.keyCode === 13) { 
+        document.getElementById("submit").click(); 
+    }
+  });
 </script>
 
