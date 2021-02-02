@@ -166,7 +166,9 @@ features:
 
     db.collection("signups").add({
         email: data["email"],
-        timestamp: Date.now()
+        timestamp: Date.now(),
+        "source": "landing2",
+
     })
     .then(function(docRef) {
         console.log("Message sent, ID: ", docRef.id);
