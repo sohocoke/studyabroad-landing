@@ -11,6 +11,7 @@
 
 layout: default
 title:  올인원 유학 준비
+headline: 해외유학 준비에 필요한 모든 문서를 한 번에 준비할 수 있다면?
 features:
   - title: 직접 유학을 준비하는 지원자들을 위하여
     text: 유학원의 힘을 빌리지 않고 직접 해외유학을 준비하다보면 각 단계마다 많은 어려움에 직면하게 됩니다. 그 중에서도 가장 지원자들을 힘들게 하는 일은 다양한 종류의 문서를 작성하는 일입니다.
@@ -44,8 +45,8 @@ features:
 <header class="masthead text-center text-white">
   <div class="masthead-content">
     <div class="container">
-      <h1 class="masthead-heading mb-0">올인원 유학 준비</h1>
-      <h2 class="masthead-subheading mb-0">해외유학 준비에 필요한 모든 문서를 한 번에 준비할 수 있다면?</h2>
+      <h1 class="masthead-heading mb-0">{{ page.title }}</h1>
+      <h2 class="masthead-subheading mb-0">{{ page.headline }}</h2>
       <a href="#" class="btn  invisible  btn-primary btn-xl rounded-pill mt-5">Learn More</a>
     </div>
   </div>
