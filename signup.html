@@ -13,12 +13,20 @@
                     </p>
                     <!-- </form> -->
                     <p id="validation-error-message" class="invisible text-danger">이메일 주소가 올바르지 않습니다.</p>
-                    <p id="thank-you-message" class="invisible">감사합니다.</p>
+                    <div id="post-submit" class="d-none">
+                        <p id="thank-you-message">감사합니다.</p>
+                        <p>아래의 짧은 설문조사에 응해 주시면 정말로 감사하겠습니다.</p>
+                        <iframe
+                            src="https://docs.google.com/forms/d/e/1FAIpQLSefvPruFKZU4uxQyJFI9YPFv7KSjG_8Q466DmJ77qDEbmpmNA/viewform?embedded=true"
+                            width="640" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…
+                        </iframe>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+
 
 <!-- Firebase App (the core Firebase SDK) is always required and must be listed first -->
 <script src="https://www.gstatic.com/firebasejs/8.2.4/firebase-app.js"></script>
@@ -92,8 +100,8 @@
     
                 // on success, show thank-you message.
                 // TODO survey.
-                var thankYou = document.getElementById("thank-you-message");
-                thankYou.classList.remove("invisible");
+                var thankYou = document.getElementById("post-submit");
+                thankYou.classList.remove("d-none");
     
             } else {
                 validationError.classList.remove("invisible");
@@ -109,3 +117,4 @@
         }
     });
 </script>
+
