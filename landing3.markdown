@@ -10,7 +10,7 @@
 # - set up firebase access control
 
 layout: default
-title:  위저드 유학 준비
+title:  유함 정보 마법사
 headline: 해외유학, 가고 싶은 학교만 정하면 모든 정보를 가져다주는 서비스가 있다면?
 features:
   - title: 지원자별 1:1 맞춤형 정보제공
