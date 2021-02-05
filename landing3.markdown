@@ -40,7 +40,7 @@ features:
     <div class="row align-items-center">
       <div class="col-lg-6 order-lg-2">
         <div class="p-5">
-          <img class="img-fluid rounded-circle" src="img/01.jpg" alt="">
+          <img class="img-fluid rounded-circle" src="img/landing3/01.jpg" alt="">
         </div>
       </div>
       <div class="col-lg-6 order-lg-1">
@@ -58,7 +58,7 @@ features:
     <div class="row align-items-center">
       <div class="col-lg-6">
         <div class="p-5">
-          <img class="img-fluid rounded-circle" src="img/02.jpg" alt="">
+          <img class="img-fluid rounded-circle" src="img/landing3/02.jpg" alt="">
         </div>
       </div>
       <div class="col-lg-6">
